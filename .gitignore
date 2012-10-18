@@ -1,0 +1,10 @@
+bin/
+.project
+.classpath
+.settings/
+.project
+gen/
+target/
+tmp/cached-robolectric-classes.jar
+*~
+project.properties

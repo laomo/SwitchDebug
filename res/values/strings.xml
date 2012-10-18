@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Debug开关</string>
+    <string name="not_root">获取root权限才能使用次功能！</string>
+</resources>
