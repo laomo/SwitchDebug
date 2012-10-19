@@ -1,5 +1,7 @@
 package com.laomo.switchdebug;
 
+import com.laomo.switchdebug.utils.Utils;
+
 import android.app.Activity;
 import android.os.Bundle;
 

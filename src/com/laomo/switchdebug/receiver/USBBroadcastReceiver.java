@@ -1,3 +1,4 @@
+package com.laomo.switchdebug.receiver;
 //package com.laomo.switchdebug;
 //
 //import android.content.BroadcastReceiver;

@@ -4,7 +4,7 @@
     android:versionName="1.0" >
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="8" />
+        android:targetSdkVersion="16" />
     
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
@@ -26,8 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AboutActivity"
+            android:label="@string/about"/>
         <receiver
-            android:name=".MyAppWidgetProvider"
+            android:name=".receiver.MyAppWidgetProvider"
             android:permission="android.permission.BIND_APPWIDGET" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -38,7 +40,7 @@
                 android:resource="@xml/widget" />
         </receiver>
         
-        <service android:name=".USBService"/>
+        <service android:name=".service.USBService"/>
         <!-- 
         <receiver android:name=".USBBroadcastReceiver">
             <intent-filter>

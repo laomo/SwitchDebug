@@ -1,4 +1,7 @@
-package com.laomo.switchdebug;
+package com.laomo.switchdebug.receiver;
+
+import com.laomo.switchdebug.R;
+import com.laomo.switchdebug.utils.Utils;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;

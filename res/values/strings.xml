@@ -2,5 +2,17 @@
     <string name="app_name">Debug开关</string>
     <string name="setting">Debug开关设置</string>
     <string name="not_root">获取root权限才能使用次功能！</string>
-    <string name="auto_switch">已开启自动切换usb调试！</string>
+    <string name="auto_switch">自动切换</string>
+    <string name="only_connect">不自动开启调试</string>
+    <string name="close">关闭</string>
+    <string name="open">开启</string>
+    <string name="about">关于本软件</string>
+    <string name="about_this">USB调试绝对是耗电大户，启用USB调试的耗电量大致等同于开启GPS的耗电量，建议大家平时养成随手关闭的好习惯。本软件专门为此开发，致力于自动化，高效开发。</string>
+    <string name="version">版本：v1.0</string>
+    <string name="help">操作指南</string>
+    <string name="auto_switch_tips">自动切换：插入USB线开启调试，拔出USB线关闭调试</string>
+    <string name="only_connect_tips">不自动开启调试：插入USB线只连接，不自动开启调试</string>
+    <string name="me">关于我</string>
+    <string name="name">作者：老默</string>
+    <string name="site">主页：http://laomos.tk</string>
 </resources>

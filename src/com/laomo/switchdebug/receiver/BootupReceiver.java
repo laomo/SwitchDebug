@@ -1,4 +1,6 @@
-package com.laomo.switchdebug;
+package com.laomo.switchdebug.receiver;
+
+import com.laomo.switchdebug.service.USBService;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
