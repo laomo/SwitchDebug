@@ -9,20 +9,21 @@ import android.os.IBinder;
 
 public class USBService extends Service {
 
-    private boolean hasRegister = false;
     private BatteryBroadcastReceiver receiver = new BatteryBroadcastReceiver();
 
     @Override
     public IBinder onBind(Intent intent) {
 	return null;
     }
+    
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        registerReceiver(receiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-	if (!hasRegister) {
-	    registerReceiver(receiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-	    hasRegister = true;
-	}
 	return super.onStartCommand(intent, flags, startId);
     }
 
@@ -30,6 +31,8 @@ public class USBService extends Service {
     public void onDestroy() {
 	super.onDestroy();
 	unregisterReceiver(receiver);
+	stopSelf();
+	startService(new Intent(this, USBService.class));
     }
 
 }

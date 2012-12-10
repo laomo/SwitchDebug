@@ -1,64 +1,40 @@
 package com.laomo.switchdebug;
 
+import com.laomo.switchdebug.service.USBService;
+import com.laomo.switchdebug.utils.Contant;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 
-import com.laomo.switchdebug.service.USBService;
+public class SettingActivity extends PreferenceActivity
+{
 
-public class SettingActivity extends PreferenceActivity 
-	//implements OnSharedPreferenceChangeListener 
-	{
-
+    @SuppressWarnings("deprecation")
     @Override
     public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	addPreferencesFromResource(R.xml.setting);
-	//PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
+	startService(new Intent(this, USBService.class));
     }
 
-//    @Override
-//    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-//	if (key.equals("auto_switch")) {
-//	    Boolean autoSwitch = sharedPreferences.getBoolean("auto_switch", false);
-//	    Intent intent = new Intent(this,USBService.class);
-//	    if(autoSwitch){
-//		startService(intent);
-//	    }else {
-//		stopService(intent);
-//	    }
-//	    Log.d("TAG", "auto_switch:"+autoSwitch);
-//	} else if (key.equals("only_connect")) {
-//	    Boolean onlyConnect = sharedPreferences.getBoolean("only_connect", false);
-//	    Log.d("TAG", "only_connect: " + onlyConnect);
-//	}
-//    }
-    
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 	String key = preference.getKey();
 	SharedPreferences sharedPreferences = preference.getSharedPreferences();
-	if (key.equals("auto_switch")) {
-	    Boolean autoSwitch = sharedPreferences.getBoolean("auto_switch", false);
-	    Intent intent = new Intent(this,USBService.class);
-	    if(autoSwitch){
-		startService(intent);
-	    }else {
-		stopService(intent);
-	    }
-	    Log.d("TAG", "auto_switch:"+autoSwitch);
-	} else if (key.equals("only_connect")) {
-	    Boolean onlyConnect = sharedPreferences.getBoolean("only_connect", false);
+	if (key.equals(Contant.AUTO_SWITCH)) {
+	    Boolean autoSwitch = sharedPreferences.getBoolean(Contant.AUTO_SWITCH, false);
+	    Log.d("TAG", "auto_switch:" + autoSwitch);
+	} else if (key.equals(Contant.ONLY_CONNECT)) {
+	    Boolean onlyConnect = sharedPreferences.getBoolean(Contant.ONLY_CONNECT, false);
 	    Log.d("TAG", "only_connect: " + onlyConnect);
-	} else if(key.equals("about")){
-	    startActivity(new Intent(this,AboutActivity.class));
+	} else if (key.equals(Contant.ABOUT)) {
+	    startActivity(new Intent(this, AboutActivity.class));
 	}
-        return true;
+	return true;
     }
 }
