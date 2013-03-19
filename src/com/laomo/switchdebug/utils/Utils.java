@@ -25,6 +25,6 @@ public class Utils {
     }
 
     public static void showToast(Context context, int msgResId) {
-	Toast.makeText(context, msgResId, Toast.LENGTH_LONG).show();
+	Toast.makeText(context, msgResId, Toast.LENGTH_SHORT).show();
     }
 }
